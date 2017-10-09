@@ -6,7 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "sportname": {
+    "sportName": {
       "type": "string",
       "required": true,
       "default": "运动会"
@@ -14,7 +14,7 @@
     "sportTime": {
       "type": "date",
       "required": true,
-      "default": "2017-02-01T16:00:00.000Z"
+      "default": "2017-10-08T16:00:00.000Z"
     },
     "sportDay": {
       "type": "number",

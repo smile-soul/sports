@@ -3,13 +3,23 @@
     "name": "db",
     "connector": "memory"
   },
-  "mysql": {
-    "host": "localhost",
+  "mongod": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "url": "",
+    "database": "test",
+    "password": "",
+    "name": "mongod",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "mysqld": {
+    "host": "127.0.0.1",
     "port": 3306,
     "url": "",
-    "database": "mysql",
+    "database": "sporttotal",
     "password": "",
-    "name": "mysql",
+    "name": "mysqld",
     "user": "root",
     "connector": "mysql"
   }

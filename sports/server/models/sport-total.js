@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Sporttotal) {
+module.exports = function(Sporttoal) {
 
 };
