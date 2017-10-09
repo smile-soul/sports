@@ -1,15 +1,53 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import VueRouter from 'vue-router'
+import { sync } from 'vuex-router-sync'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
 import App from './App'
-import router from './router'
+import store from './store'
+import routes from './routes'
+import * as filters from './filters'
 
-Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+Vue.use(VueRouter)
+Vue.use(ElementUI)
+
+// register global utility filters.
+Object.keys(filters).forEach((key) => {
+  Vue.filter(key, filters[key])
+})
+
+// Routing logic
+const router = new VueRouter({
+  mode: 'history',
+  routes,
+})
+
+// check if logged in, if not, redirect to login page.
+router.beforeEach((to, from, next) => {
+  const { requiresAuth = true } = to.meta
+  if (requiresAuth) {
+    if (!store.state.user.token) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath },
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
+
+// sync the router with the vuex store.
+// this registers `store.state.route`
+sync(store, router)
+
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App }
+  store,
+  render: h => h(App),
 })
