@@ -16,6 +16,10 @@
           </el-form-item>
         </el-col>
       </el-form-item>
+      <el-form-item label="持续天数" prop="sportsDay">
+        <el-input-number v-model="baseInfoForm.sportsDay" :min="0" :max="100">
+        </el-input-number>
+      </el-form-item>
       <el-form-item label="运动会场地" prop="place">
         <el-select v-model="baseInfoForm.place" placeholder="请选择运动会场地">
           <el-option label="场地一" value="shanghai"></el-option>
@@ -37,6 +41,9 @@
           <el-option label="自动计时" value="method-02"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item class="sports-group" label="自定义比赛组" prop="sportsGroup">
+        <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：[甲组, 乙组]"></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('baseInfoForm')">保存</el-button>
         <el-button @click="resetForm('baseInfoForm')">重置</el-button>
@@ -54,6 +61,7 @@ export default{
       baseInfoForm: {
         sportsName: '',
         dateRange: '',
+        sportsDay: 1,
         place: '',
         runwayCount: '',
         countTimeMethod: '',
@@ -92,4 +100,9 @@ export default{
 
 
 <style lang="scss">
+.base-info-view {
+  .sports-group {
+    width: 50%;
+  }
+}
 </style>
