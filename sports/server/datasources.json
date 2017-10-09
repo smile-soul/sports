@@ -3,16 +3,6 @@
     "name": "db",
     "connector": "memory"
   },
-  "mongod": {
-    "host": "127.0.0.1",
-    "port": 27017,
-    "url": "",
-    "database": "test",
-    "password": "",
-    "name": "mongod",
-    "user": "",
-    "connector": "mongodb"
-  },
   "mysqld": {
     "host": "127.0.0.1",
     "port": 3306,

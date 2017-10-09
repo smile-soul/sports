@@ -35,11 +35,7 @@
     "dataSource": "db",
     "public": false
   },
-  "sportTotal": {
-    "dataSource": "mongod",
-    "public": true
-  },
-  "names": {
+  "sporttotal": {
     "dataSource": "mysqld",
     "public": true
   }

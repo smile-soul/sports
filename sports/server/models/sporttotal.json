@@ -1,0 +1,67 @@
+{
+  "name": "sporttotal",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sportname": {
+      "type": "string",
+      "required": true,
+      "default": "运动会"
+    },
+    "sporttime": {
+      "type": "date",
+      "required": true,
+      "default": "2017-10-09T00:00:00.000Z"
+    },
+    "sportday": {
+      "type": "number",
+      "required": true,
+      "default": 2
+    },
+    "sportStrRoad": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "['一道'，'二道']"
+      ]
+    },
+    "sportBend": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "['一道'，'二道']"
+      ]
+    },
+    "sportMehtod": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "['计时'",
+        "'电子计时']"
+      ]
+    },
+    "sportGroup": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "['甲组'，",
+        "'乙组']"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
