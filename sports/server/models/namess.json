@@ -1,0 +1,22 @@
+{
+  "name": "namess",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "namesss": {
+      "type": "boolean",
+      "default": true
+    },
+    "sss": {
+      "type": "string",
+      "default": "'dddd'"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
