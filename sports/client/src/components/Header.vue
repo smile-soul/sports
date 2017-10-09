@@ -18,7 +18,7 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="userInfo">用户信息</el-dropdown-item>
           <el-dropdown-item command="changePassword">修改密码</el-dropdown-item>
-          <el-dropdown-item command="logout" divided>登出</el-dropdown-item>
+          <el-dropdown-item command="logout">登出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -74,7 +74,6 @@ export default {
   padding: 0 30px 0 20px;
   color: #fff;
   background-color: #222222;
-
   .topbar-left,
   .topbar-center,
   .topbar-right {
@@ -86,7 +85,7 @@ export default {
     line-height: 56px;
   }
   .topbar-left {
-    min-width: 200px;
+    min-width: 175px;
   }
   .topbar-right {
     float: right;
@@ -108,41 +107,6 @@ export default {
   .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color: rgba(34, 34, 34, 0.7) !important;
     color: inherit !important;
-  }
-  .logout {
-    color: #dc2979 !important;
-  }
-  .logout:not(.is-disabled):hover {
-    color: #dc2979 !important;
-  }
-}
-.errorMessage {
-  color: #f20000;
-  text-align: center;
-}
-.el-dialog__body {
-  padding: 10px 20px;
-}
-.changeUserInfo {
-  .el-input, .el-input__inner {
-    width: 100%;
-  }
-  .el-form-item {
-    margin-bottom: 0px;
-  }
-  .el-select {
-    display: block;
-    .el-input__icon {
-      display: none;
-    }
-  }
-  .el-form-item__content {
-    margin-bottom: 10px;
-  }
-}
-.changePassword {
-  .el-dialog__header {
-    padding: 20px 20px;
   }
 }
 </style>
