@@ -1,3 +1,7 @@
-cd /opt/sports
+#!/usr/bin/env bash
+set -e
+cd /opt
 ls
-node .
+npm start
+
+exec "$@"
