@@ -35,12 +35,11 @@
     "dataSource": "db",
     "public": false
   },
-  "namess": {
-    "dataSource": "db",
-    "public": true
+  "Note": {
+    "dataSource": "db"
   },
-  "review": {
-    "dataSource": "mongodb",
+  "sportTotal": {
+    "dataSource": "mysql",
     "public": true
   }
 }

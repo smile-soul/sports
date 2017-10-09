@@ -18,7 +18,5 @@
       "limit": "100kb"
     },
     "cors": false
-  },
-  "legacyExplorer": false,
-  "logoutSessionsOnSensitiveChanges": true
+  }
 }
