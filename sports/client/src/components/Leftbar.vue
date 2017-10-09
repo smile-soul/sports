@@ -49,9 +49,9 @@ export default {
       menus: [
         {
           name: 'emqx',
-          title: 'page_1',
+          title: '基本信息设置',
           icon: 'open_in_browser',
-          index: '/emqx',
+          index: '/base_info',
         },
         {
           name: 'news',

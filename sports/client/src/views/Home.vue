@@ -2,7 +2,7 @@
   <div class="home-view">
     <navbar></navbar>
     <leftbar></leftbar>
-    <div class="home-content">
+    <div class="home-content" :class="{ wide: !$store.state.leftbar.wide }">
       <router-view></router-view>
     </div>
   </div>
@@ -23,9 +23,11 @@ export default{
 <style lang="scss">
 .home-view {
   height: 100%;
-  background-color: #313131;
-}
-.home-view .home-content {
-  margin: 0 20px 0 220px;
+  .home-content {
+    margin: 56px 20px 0 220px;
+  }
+  .home-content.wide {
+    margin: 56px 20px 0 70px;
+  }
 }
 </style>
