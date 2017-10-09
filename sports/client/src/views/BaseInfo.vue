@@ -1,6 +1,6 @@
 <template>
   <div class="base-info-view">
-    <h1>基本信息设置</h1>
+    <h1>基本信息</h1>
     <el-form ref="baseInfoForm" label-width="100px" :model="baseInfoForm" :rules="rules">
       <el-form-item label="运动会名称" prop="sportsName">
         <el-input v-model="baseInfoForm.sportsName" placeholder="请输入运动会名称"></el-input>
@@ -41,7 +41,7 @@
           <el-option label="自动计时" value="method-02"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item class="sports-group" label="自定义比赛组" prop="sportsGroup">
+      <el-form-item class="sports-group" label="比赛分组" prop="sportsGroup">
         <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：[甲组, 乙组]"></el-input>
       </el-form-item>
       <el-form-item>
@@ -76,6 +76,9 @@ export default{
         ],
         place: [
           { required: true, message: '请选择运动会场地', trigger: 'change' },
+        ],
+        sportsGroup: [
+          { type: 'array', required: true, message: '请输入比赛分组', trigger: 'blur' },
         ],
       },
     }

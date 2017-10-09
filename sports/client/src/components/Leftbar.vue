@@ -49,15 +49,15 @@ export default {
       menus: [
         {
           name: 'emqx',
-          title: '基本信息设置',
+          title: '基本信息',
           icon: 'open_in_browser',
           index: '/base_info',
         },
         {
           name: 'news',
-          title: 'page_2',
+          title: '比赛规则',
           icon: 'public',
-          index: '/news',
+          index: '/rules',
         },
         {
           name: 'jobs',

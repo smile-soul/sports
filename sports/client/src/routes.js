@@ -4,6 +4,7 @@ import Login from './views/Login'
 import Home from './views/Home'
 import Overview from './views/Overview'
 import BaseInfo from './views/BaseInfo'
+import Rules from './views/Rules'
 
 
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
     children: [
       { path: '', component: Overview, alias: 'overview' },
       { path: 'base_info', component: BaseInfo },
+      { path: 'rules', component: Rules },
     ],
   }, {
     path: '*',
