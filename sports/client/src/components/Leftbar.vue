@@ -121,14 +121,14 @@ export default {
     height: 50px;
     width: 3px;
     content: "";
-    background-color: #00ab6b;
-    box-shadow: 0 0 40px 2px #00ab6b;
+    background-color: #20a0ff;
+    box-shadow: 0 0 40px 2px #20a0ff;
   }
   .el-submenu .el-menu-item {
     padding-left: 45px !important;
   }
   .el-submenu .el-menu-item.is-active {
-    color: #00ab6b;
+    color: #20a0ff;
   }
 }
 
@@ -156,7 +156,7 @@ export default {
     padding-left: 20px !important;
     &:hover {
       background-color: transparent;
-      color: rgba(#00ab6b, 0.6);
+      color: #20a0ff;
     }
   }
 }
