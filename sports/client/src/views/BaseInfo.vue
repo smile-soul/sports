@@ -44,7 +44,7 @@
           </el-select>
         </el-form-item>
         <el-form-item class="sports-group" label="比赛分组" prop="sportsGroup">
-          <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：[甲组, 乙组]"></el-input>
+          <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：甲组, 乙组"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('baseInfoForm')">保存</el-button>
@@ -69,6 +69,7 @@ export default{
         place: '',
         runwayCount: '',
         countTimeMethod: '',
+        sportsGroup: '',
       },
       rules: {
         sportsName: [
@@ -82,7 +83,7 @@ export default{
           { required: true, message: '请选择运动会场地', trigger: 'change' },
         ],
         sportsGroup: [
-          { type: 'array', required: true, message: '请输入比赛分组', trigger: 'blur' },
+          { required: true, message: '请输入比赛分组', trigger: 'blur' },
         ],
       },
     }
