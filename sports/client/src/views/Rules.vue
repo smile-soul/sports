@@ -1,8 +1,8 @@
 <template>
   <div class="rules-view">
     <h1>比赛规则</h1>
-    <el-tabs v-model="activeName" type="card">
-      <el-tab-pane label="甲组" name="firstTab">
+    <el-tabs type="border-card">
+      <el-tab-pane label="甲组">
         <el-form ref="rulesForm" label-width="200px" :model="rulesForm" :rules="rules">
           <h4>1. 名次加分</h4>
           <el-form-item label="第1名" prop="grade">
@@ -102,7 +102,7 @@
         </el-form>
       </el-tab-pane>
       <!-- tab02 -->
-      <el-tab-pane label="乙组" name="secondTab">
+      <el-tab-pane label="乙组">
         tab02
       </el-tab-pane>
     </el-tabs>
@@ -115,7 +115,6 @@ export default {
   name: 'rules-view',
   data() {
     return {
-      activeName: 'firstTab',
       rulesForm: {
         grade: 1,
       },

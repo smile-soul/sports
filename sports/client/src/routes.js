@@ -5,6 +5,9 @@ import Home from './views/Home'
 import Overview from './views/Overview'
 import BaseInfo from './views/BaseInfo'
 import Rules from './views/Rules'
+import SportsItem from './views/SportsItem'
+import Arguments from './views/Arguments'
+import Allocation from './views/Allocation'
 
 
 const routes = [
@@ -23,6 +26,9 @@ const routes = [
       { path: '', component: Overview, alias: 'overview' },
       { path: 'base_info', component: BaseInfo },
       { path: 'rules', component: Rules },
+      { path: 'sports_item', component: SportsItem },
+      { path: 'arguments', component: Arguments },
+      { path: 'allocation', component: Allocation },
     ],
   }, {
     path: '*',
