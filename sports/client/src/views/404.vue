@@ -1,6 +1,7 @@
 <template>
-  <div class="not-found text-center">
-    <p>我是404页面</p>
+  <div class="not-found">
+    <p>404 - 页面不存在</p>
+    <a href="/">返回首页</a>
   </div>
 </template>
 
@@ -8,19 +9,16 @@
 <script>
 export default{
   name: 'NotFound',
-  data() {
-    return {
-    }
-  },
-  components: {
-  },
 }
 </script>
 
 
-<style>
-.not-found p {
-  margin-top: 30px;    
-  font-size: 20px;
+<style lang="scss">
+.not-found {
+  text-align: center;
+  overflow: hidden;
+  p {
+    font-size: 20px;
+  }
 }
 </style>
