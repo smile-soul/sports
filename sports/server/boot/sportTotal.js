@@ -7,4 +7,11 @@ module.exports = function(app) {
       if (err) throw err;
     });
   });
+  app.dataSources.mysqld.automigrate('sources', function(err) {
+    if (err) throw err;
+    app.models.sources.create({
+    }, function(err, names) {
+      if (err) throw err;
+    });
+  });
 };

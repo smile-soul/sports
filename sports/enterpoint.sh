@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
-cd /opt
+cd /opt/client
 ls
-npm start
+npm run dev
 
 exec "$@"

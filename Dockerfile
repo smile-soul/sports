@@ -1,4 +1,4 @@
-FROM node:8.6.0
+FROM node:6.11.4
 
 ADD sports /opt/
 RUN ls /opt/ && \

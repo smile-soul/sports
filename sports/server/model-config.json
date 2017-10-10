@@ -38,5 +38,9 @@
   "sporttotal": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "sources": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

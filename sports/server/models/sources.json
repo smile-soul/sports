@@ -1,0 +1,19 @@
+{
+  "name": "sources",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sourceArrage": {
+      "type": "number",
+      "required": true,
+      "default": 3
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
