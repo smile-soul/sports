@@ -12,9 +12,9 @@
       "default": "运动会"
     },
     "sporttime": {
-      "type": "date",
+      "type": "string",
       "required": true,
-      "default": "2017-10-09T00:00:00.000Z"
+      "default": "2017-10-09--2017-10-00"
     },
     "sportday": {
       "type": "number",
@@ -26,38 +26,28 @@
         "string"
       ],
       "required": true,
-      "default": [
-        "['一道'，'二道']"
-      ]
+      "default": ["一道","二道"]
     },
     "sportBend": {
       "type": [
         "string"
       ],
       "required": true,
-      "default": [
-        "['一道'，'二道']"
-      ]
+      "default": ["一道","二道"]
     },
     "sportMehtod": {
       "type": [
         "string"
       ],
       "required": true,
-      "default": [
-        "['计时'",
-        "'电子计时']"
-      ]
+      "default": ["计时","电子计时"]
     },
     "sportGroup": {
       "type": [
         "string"
       ],
       "required": true,
-      "default": [
-        "['甲组'，",
-        "'乙组']"
-      ]
+      "default": ["甲组","乙组"]
     }
   },
   "validations": [],
