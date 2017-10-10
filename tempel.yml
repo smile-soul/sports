@@ -1,0 +1,40 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+  selector:
+    name: mysql
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: mysql
+spec:
+  template:
+    metadata:
+      labels:
+        name: mysql
+    spec:
+      volumes:
+      - name: mysql-data
+        hostPath:
+          path: /root/mysql-data
+      containers:
+      - name: mysql
+        image: mysql:5.7.19
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: mysql-data
+  replicas: 1
