@@ -1,5 +1,5 @@
 <template>
-  <div class="sports-item-view">
+  <div class="sports-items-view">
     <h1>比赛项目</h1>
     <el-tabs type="border-card">
       <el-tab-pane label="径赛直道">
@@ -7,7 +7,7 @@
           <el-form-item label="跨栏项目" prop="sportsName">
             <el-input v-model="baseInfoForm.sportsName" placeholder="请输入跨栏项目，如：110米栏, 100米栏"></el-input>
           </el-form-item>
-          <el-form-item class="sports-group" label="普通直道项目" prop="sportsGroup">
+          <el-form-item label="普通直道项目" prop="sportsGroup">
             <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入普通直道项目，如：100米, 50米"></el-input>
           </el-form-item>
           <el-form-item>
@@ -21,7 +21,7 @@
           <el-form-item label="分道项目" prop="sportsName">
             <el-input v-model="baseInfoForm.sportsName" placeholder="请输入分道项目，如：200米栏, 400米栏"></el-input>
           </el-form-item>
-          <el-form-item class="sports-group" label="不分道项目" prop="sportsGroup">
+          <el-form-item label="不分道项目" prop="sportsGroup">
             <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入不分道项目，如：1500米, 5000米"></el-input>
           </el-form-item>
           <el-form-item>
@@ -35,7 +35,7 @@
           <el-form-item label="高度项目" prop="sportsName">
             <el-input v-model="baseInfoForm.sportsName" placeholder="请输入高度项目，如：跳高, 撑杆跳"></el-input>
           </el-form-item>
-          <el-form-item class="sports-group" label="一般项目" prop="sportsGroup">
+          <el-form-item label="一般项目" prop="sportsGroup">
             <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入一般项目，如：跳远, 铅球"></el-input>
           </el-form-item>
           <el-form-item>
@@ -49,7 +49,7 @@
           <el-form-item label="性别分组" prop="sportsName">
             <el-input v-model="baseInfoForm.sportsName" placeholder="请输入分道项目，如：200米栏, 400米栏"></el-input>
           </el-form-item>
-          <el-form-item class="sports-group" label="男女混合比赛" prop="sportsGroup">
+          <el-form-item label="男女混合比赛" prop="sportsGroup">
             <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入不分道项目，如：1500米, 5000米"></el-input>
           </el-form-item>
           <el-form-item>
@@ -79,7 +79,7 @@
 
 <script>
 export default {
-  name: 'sports-item-view',
+  name: 'sports-items-view',
   data() {
     return {
       baseInfoForm: {
@@ -109,6 +109,6 @@ export default {
 
 
 <style lang="scss">
-.sports-item-view {
+.sports-items-view {
 }
 </style>

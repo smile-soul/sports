@@ -1,5 +1,5 @@
 <template>
-  <div class="rules-view">
+  <div class="sports-rules-view">
     <h1>比赛规则</h1>
     <el-tabs type="border-card">
       <el-tab-pane label="甲组">
@@ -112,7 +112,7 @@
 
 <script>
 export default {
-  name: 'rules-view',
+  name: 'sports-rules-view',
   data() {
     return {
       rulesForm: {
@@ -141,7 +141,7 @@ export default {
 
 
 <style lang="scss">
-.rules-view {
+.sports-rules-view {
   margin-bottom: 20px;
   .el-form-item {
     margin-bottom: 0;

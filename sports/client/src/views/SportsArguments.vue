@@ -1,5 +1,5 @@
 <template>
-  <div class="arguments-view">
+  <div class="sports-arguments-view">
     <h1>项目参数</h1>
     <el-tabs type="border-card">
       <el-tab-pane label="每组比赛时间">
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'arguments-view',
+  name: 'sports-arguments-view',
   data() {
     return {
     }
@@ -23,6 +23,6 @@ export default {
 
 
 <style lang="scss">
-.arguments-view {
+.sports-arguments-view {
 }
 </style>

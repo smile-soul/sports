@@ -43,7 +43,7 @@
             <el-option label="自动计时" value="method-02"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item class="sports-group" label="比赛分组" prop="sportsGroup">
+        <el-form-item label="比赛分组" prop="sportsGroup">
           <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：甲组, 乙组"></el-input>
         </el-form-item>
         <el-form-item>

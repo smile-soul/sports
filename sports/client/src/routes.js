@@ -4,10 +4,10 @@ import Login from './views/Login'
 import Home from './views/Home'
 import Overview from './views/Overview'
 import BaseInfo from './views/BaseInfo'
-import Rules from './views/Rules'
-import SportsItem from './views/SportsItem'
-import Arguments from './views/Arguments'
-import Allocation from './views/Allocation'
+import SportsRules from './views/SportsRules'
+import SportsItems from './views/SportsItems'
+import SportsArguments from './views/SportsArguments'
+import AllocateNumber from './views/AllocateNumber'
 
 
 const routes = [
@@ -25,10 +25,10 @@ const routes = [
     children: [
       { path: '', component: Overview, alias: 'overview' },
       { path: 'base_info', component: BaseInfo },
-      { path: 'rules', component: Rules },
-      { path: 'sports_item', component: SportsItem },
-      { path: 'arguments', component: Arguments },
-      { path: 'allocation', component: Allocation },
+      { path: 'sports_rules', component: SportsRules },
+      { path: 'sports_items', component: SportsItems },
+      { path: 'sports_arguments', component: SportsArguments },
+      { path: 'allocate_number', component: AllocateNumber },
     ],
   }, {
     path: '*',
