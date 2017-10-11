@@ -31,6 +31,7 @@
     "type": "",
     "url": ""
   },
+  "bin": "./server/server.js",
   "license": "UNLICENSED",
   "description": "sports"
 }
