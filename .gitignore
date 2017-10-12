@@ -13,8 +13,8 @@
 .DS_Store
 .idea
 .project
-*/sports/.strong-pm
-*/sports/coverage
-*/sports/node_modules
-*/sports/client/node_modules
-*/sports/npm-debug.log
+*/*/.strong-pm
+*/*/coverage
+*/*/node_modules
+*/*/client/node_modules
+*/*/npm-debug.log
