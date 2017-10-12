@@ -35,13 +35,49 @@ paths:
         - "sportBase"
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
-      operationId: sportinfo
+      operationId: sportBaseget
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      tags:
+        - "sportBase"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportBaseput
       parameters:
-        - name: name
-          in: query
+        - name: body
+          in: body
           description: The name of the person to whom to say hello
-          required: false
-          type: string
+          required: true
+          schema:
+            type: object
+            required:
+              - "sportname"
+              - "sportBeginTime"
+              - "sportEndTime"
+              - "sportday"
+            properties:
+              sportname:
+                type: string
+                example: "yundonghui"
+              sportBeginTime:
+                type: string
+                example: "2017-2-1"
+              sportEndTime:
+                type: string
+                example: "2017-2-1"
+              sportday:
+                type: integer
+                example: 2
       responses:
         "200":
           description: Success
@@ -58,15 +94,11 @@ paths:
     x-swagger-router-controller: sportinfo
     # x-swagger-router-handle-subpaths": true
     get:
+      tags:
+        - "sportBase"
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
-      operationId: sportinfo
-      parameters:
-        - name: username
-          in: path
-          description: The name of the person to whom to say hello
-          required: true
-          type: string
+      operationId: sportRoad
       responses:
         "200":
           description: Success
