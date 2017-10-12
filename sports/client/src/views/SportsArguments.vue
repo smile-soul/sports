@@ -96,8 +96,5 @@ export default {
 
 <style lang="scss">
 .sports-arguments-view {
-  .el-form-item {
-    margin-bottom: 0;
-  }
 }
 </style>
