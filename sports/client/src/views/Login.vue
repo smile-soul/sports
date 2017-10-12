@@ -28,7 +28,7 @@
             <div class="checkbox">
               <el-checkbox v-model="remember" style="color: inherit;">Remember</el-checkbox>
             </div>
-            <el-button type="success" @click="login">Log In</el-button>
+            <el-button type="success" @click="$router.push({ path: '/' })">Log In</el-button>
           </div>
           <div>
             Not a member?<a href="javascript:;" @click="signup"> Sign up now</a>
@@ -103,7 +103,6 @@ export default {
       })
     },
   },
-
 }
 </script>
 
