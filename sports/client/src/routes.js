@@ -23,12 +23,12 @@ const routes = [
     path: '/',
     component: Home,
     children: [
-      { path: '', component: Overview, alias: 'overview' },
-      { path: 'base_info', component: BaseInfo },
-      { path: 'sports_rules', component: SportsRules },
-      { path: 'sports_items', component: SportsItems },
-      { path: 'sports_arguments', component: SportsArguments },
-      { path: 'allocate_number', component: AllocateNumber },
+      { path: '', component: Overview, alias: 'overview', meta: { requiresAuth: false } },
+      { path: 'base_info', component: BaseInfo, meta: { requiresAuth: false } },
+      { path: 'sports_rules', component: SportsRules, meta: { requiresAuth: false } },
+      { path: 'sports_items', component: SportsItems, meta: { requiresAuth: false } },
+      { path: 'sports_arguments', component: SportsArguments, meta: { requiresAuth: false } },
+      { path: 'allocate_number', component: AllocateNumber, meta: { requiresAuth: false } },
     ],
   }, {
     path: '*',
