@@ -65,6 +65,10 @@ paths:
               - "sportBeginTime"
               - "sportEndTime"
               - "sportday"
+              - "straroad"
+              - "benroad"
+              - "methodroad"
+              - "comgroup"
             properties:
               sportname:
                 type: string
@@ -78,6 +82,18 @@ paths:
               sportday:
                 type: integer
                 example: 2
+              straroad:
+                type: string
+                example: "一道"
+              benroad:
+                type: string
+                example: "一道"
+              methodroad:
+                type: string
+                example: "手记时"
+              comgroup:
+                type: string
+                example: "['A组', 'B组']"
       responses:
         "200":
           description: Success

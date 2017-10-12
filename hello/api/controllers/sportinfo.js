@@ -26,13 +26,17 @@ function sportBaseget(req, res) {
 }
 
 function sportBaseput(req, res) {
-  const bodyname = Object.values(req.swagger.params.body.value);
+  const bodyname = req.swagger.params.body.value;
   pool.getConnection(function(err, connection) {
     connection.query(`update sportInfo set
-    sportname=${getjson(bodyname[0])},
-    sportBeginTime=${getjson(bodyname[1])},
-    sportEndTime=${getjson(bodyname[2])},
-    sportday=${getjson(bodyname[3])}
+    sportname=${getjson(bodyname["sportname"])},
+    sportBeginTime=${getjson(bodyname["sportBeginTime"])},
+    sportEndTime=${getjson(bodyname["sportEndTime"])},
+    sportday=${getjson(bodyname["sportday"])},
+    straroad=${getjson(bodyname["straroad"])},
+    benroad=${getjson(bodyname["benroad"])},
+    methodroad=${getjson(bodyname["methodroad"])},
+    comgroup=${getjson(bodyname["comgroup"])}
     where id=1`, function (error, results, fields) {
       res.send(results);
       connection.release();
