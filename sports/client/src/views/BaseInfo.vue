@@ -4,7 +4,7 @@
     <el-tabs type="border-card">
       <el-tab-pane label="——">
         <el-form ref="baseInfoForm" label-width="100px" :model="baseInfoForm" :rules="rules">
-          <el-form-item label="运动会名称" prop="sportsName">
+          <el-form-item label="运动会名称" prop="sportsName" class="sports-name">
             <el-input v-model="baseInfoForm.sportsName" placeholder="请输入运动会名称"></el-input>
           </el-form-item>
           <el-form-item label="运动会时间" required>
@@ -22,14 +22,17 @@
           <el-input-number v-model="baseInfoForm.sportsDay" :min="0" :max="100">
           </el-input-number>
         </el-form-item>
-        <el-form-item label="运动会场地" prop="place">
-          <el-select v-model="baseInfoForm.place" placeholder="请选择运动会场地">
-            <el-option label="场地一" value="shanghai"></el-option>
-            <el-option label="场地二" value="beijing"></el-option>
+        <el-form-item label="直道数目" prop="straightWay">
+          <el-select v-model="baseInfoForm.straightWay" placeholder="请选择直道数目">
+            <el-option label="1" value="1"></el-option>
+            <el-option label="2" value="2"></el-option>
+            <el-option label="3" value="3"></el-option>
+            <el-option label="4" value="4"></el-option>
+            <el-option label="5" value="5"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="赛道数目" prop="runwayCount">
-          <el-select v-model="baseInfoForm.runwayCount" placeholder="请选择赛道数目">
+        <el-form-item label="弯道数目" prop="curvedWay">
+          <el-select v-model="baseInfoForm.curvedWay" placeholder="请选择弯道数目">
             <el-option label="1" value="1"></el-option>
             <el-option label="2" value="2"></el-option>
             <el-option label="3" value="3"></el-option>
@@ -44,7 +47,14 @@
           </el-select>
         </el-form-item>
         <el-form-item label="比赛分组" prop="sportsGroup">
-          <el-input v-model="baseInfoForm.sportsGroup" placeholder="请输入比赛分组，如：甲组, 乙组"></el-input>
+          <el-select v-model="baseInfoForm.sportsGroup" multiple placeholder="请选择比赛分组（多选）">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('baseInfoForm')">保存</el-button>
@@ -66,11 +76,21 @@ export default{
         sportsName: '',
         dateRange: '',
         sportsDay: 1,
-        place: '',
-        runwayCount: '',
+        straightWay: '',
+        curvedWay: '',
         countTimeMethod: '',
-        sportsGroup: '',
+        sportsGroup: [],
       },
+      options: [{
+        value: '甲组',
+        label: '甲组',
+      }, {
+        value: '乙组',
+        label: '乙组',
+      }, {
+        value: '丙组',
+        label: '丙组',
+      }],
       rules: {
         sportsName: [
           { required: true, message: '请输入运动会名称', trigger: 'blur' },
@@ -79,11 +99,8 @@ export default{
         dateRange: [
           { type: 'array', required: true, message: '请选择日期', trigger: 'change' },
         ],
-        place: [
-          { required: true, message: '请选择运动会场地', trigger: 'change' },
-        ],
         sportsGroup: [
-          { required: true, message: '请输入比赛分组', trigger: 'blur' },
+          { required: true, message: '请选择比赛分组', trigger: 'blur' },
         ],
       },
     }
@@ -109,8 +126,8 @@ export default{
 
 <style lang="scss">
 .base-info-view {
-  .sports-group {
-    width: 50%;
+  .sports-name {
+    width: 500px;;
   }
 }
 </style>
