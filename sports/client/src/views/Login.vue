@@ -43,13 +43,11 @@
 <script>
 import axios from 'axios'
 import { mapActions } from 'vuex'
-import { SHA256 } from 'crypto-js'
 import { baseURL } from '../store/api'
 import { USER_LOGIN } from '../store/mutation-types'
 
 export default {
   name: 'login-view',
-
   data() {
     return {
       username: '',
@@ -81,7 +79,7 @@ export default {
       }
       const data = {
         username: this.username,
-        password: SHA256(this.password).toString(),
+        password: this.password,
         remember: this.remember,
       }
       axios({
@@ -112,7 +110,7 @@ export default {
 
 <style>
 .login-view {
-  background-color: #181818;  
+  background-color: #181818;
   height: 100%;
 }
 .login-view .login-form {
@@ -132,17 +130,17 @@ export default {
   border-width: 2px;
 }
 .login-view .el-button {
-  padding: 9px 25px;  
+  padding: 9px 25px;
 }
 .login-view .login-footer {
-  margin: 25px 0;  
+  margin: 25px 0;
   text-align: right;
   border-bottom: 1px solid #EFF2F7;
   padding-bottom: 25px;
 }
 .login-view .checkbox {
   float: left;
-  display: inline-block;  
+  display: inline-block;
   margin: 6.5px 0 0;
 }
 </style>

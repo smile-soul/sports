@@ -42,5 +42,9 @@
   "sources": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "names": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

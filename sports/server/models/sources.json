@@ -8,22 +8,22 @@
   "properties": {
     "sourceAdd": {
       "type": {
-          "a": "number",
-          "b": "number"
-        },
+        "a": "number",
+        "b": "number"
+      },
       "required": true,
       "default": {
-          "a": 1,
-          "b": 2
-        }
+        "a": 1,
+        "b": 2
+      }
     },
     "sourceBreak": {
       "type": [
-          {
-            "name": "string",
-            "avaSources": "number",
-            "breakSources": "number"
-          }
+        {
+          "name": "string",
+          "avaSources": "number",
+          "breakSources": "number"
+        }
       ],
       "required": true,
       "default": [
@@ -37,7 +37,7 @@
           "avaSources": 3,
           "breakSources": 4
         }
-    ]
+      ]
     },
     "addNumbers": {
       "type": [
