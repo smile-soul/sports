@@ -4,7 +4,7 @@
       <span class="site-title">运动会编排系统</span>
     </div>
     <div class="topbar-center">
-      <a href="javascript:;" @click="">
+      <a href="javascript:;" @click="leftbarSwitch()">
         <i class="material-icons">menu</i>
       </a>
     </div>

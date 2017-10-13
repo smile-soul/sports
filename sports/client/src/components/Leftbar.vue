@@ -2,42 +2,42 @@
   <div class="leftbar" :class="{ narrow: !$store.state.leftbar.wide }">
     <!-- 左侧导航菜单-展开 -->
     <el-menu
-    v-if="$store.state.leftbar.wide"
-    router
-    unique-opened
-    mode="vertical"
-    theme="dark"
-    :default-active="'/' + $route.path.split('/')[1]">
-    <el-menu-item class="home" index="/" @click="">
-      <i class="material-icons">home</i>首页
-    </el-menu-item>
-    <el-menu-item v-for="menu in menus" :index="menu.index" :key="menu.id">
-      <i class="material-icons">{{ menu.icon }}</i>{{ menu.title }}
-    </el-menu-item>
-  </el-menu>
-  <!-- 左侧导航菜单-收缩 -->
-  <el-menu
-  v-if="!$store.state.leftbar.wide"
-  router
-  unique-opened
-  mode="vertical"
-  theme="dark"
-  :default-active="'/' + $route.path.split('/')[1]">
-  <el-menu-item class="home" index="/">
-    <i class="material-icons">home</i>
-  </el-menu-item>
-  <el-submenu v-for="menu in menus" :index="menu.index" :key="menu.id">
-    <template slot="title">
-      <el-popover placement="right-start" trigger="hover" :visible-arrow=false>
-        <el-menu-item :index="menu.index" :key="menu.id">
-          {{ menu.title }}
-        </el-menu-item>
-        <i class="material-icons" slot="reference">{{ menu.icon }}</i>
-      </el-popover>
-    </template>
-  </el-submenu>
-</el-menu>
-</div>
+      v-if="$store.state.leftbar.wide"
+      router
+      unique-opened
+      mode="vertical"
+      theme="dark"
+      :default-active="'/' + $route.path.split('/')[1]">
+      <el-menu-item class="home" index="/">
+        <i class="material-icons">home</i>首页
+      </el-menu-item>
+      <el-menu-item v-for="menu in menus" :index="menu.index" :key="menu.id">
+        <i class="material-icons">{{ menu.icon }}</i>{{ menu.title }}
+      </el-menu-item>
+    </el-menu>
+    <!-- 左侧导航菜单-收缩 -->
+    <el-menu
+      v-if="!$store.state.leftbar.wide"
+      router
+      unique-opened
+      mode="vertical"
+      theme="dark"
+      :default-active="'/' + $route.path.split('/')[1]">
+      <el-menu-item class="home" index="/">
+        <i class="material-icons">home</i>
+      </el-menu-item>
+      <el-submenu v-for="menu in menus" :index="menu.index" :key="menu.id">
+        <template slot="title">
+          <el-popover placement="right-start" trigger="hover" :visible-arrow=false>
+            <el-menu-item :index="menu.index" :key="menu.id">
+              {{ menu.title }}
+            </el-menu-item>
+            <i class="material-icons" slot="reference">{{ menu.icon }}</i>
+          </el-popover>
+        </template>
+      </el-submenu>
+    </el-menu>
+  </div>
 </template>
 
 
