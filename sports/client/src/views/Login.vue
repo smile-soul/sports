@@ -10,25 +10,25 @@
             <el-form-item label="Username">
               <el-input
                 v-model="username"
-                v-bind:class="{ error: loginError.username }"
-                v-bind:placeholder="loginError.username"
-                @focus="loginError.username=''"
-              ></el-input>
+                :class="{ error: loginError.username }"
+                :placeholder="loginError.username"
+                @focus="loginError.username=''">
+              </el-input>
             </el-form-item>
             <el-form-item label="Pasword">
               <el-input type="password"
                 v-model="password"
-                v-bind:class="{ error: loginError.password }"
-                v-bind:placeholder="loginError.password"
-                @focus="loginError.password=''"
-              ></el-input>
+                :class="{ error: loginError.password }"
+                :placeholder="loginError.password"
+                @focus="loginError.password=''">
+              </el-input>
             </el-form-item>
           </el-form>
           <div class="login-footer">
             <div class="checkbox">
               <el-checkbox v-model="remember" style="color: inherit;">Remember</el-checkbox>
             </div>
-            <el-button type="success" @click="$router.push({ path: '/' })">Log In</el-button>
+            <el-button type="primary" @click="$router.push({ path: '/' })">Log In</el-button>
           </div>
           <div>
             Not a member?<a href="javascript:;" @click="signup"> Sign up now</a>
@@ -43,6 +43,7 @@
 <script>
 import axios from 'axios'
 import { mapActions } from 'vuex'
+
 import { baseURL } from '../store/api'
 import { USER_LOGIN } from '../store/mutation-types'
 

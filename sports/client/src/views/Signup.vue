@@ -10,30 +10,30 @@
             <el-form-item label="Username">
               <el-input
                 v-model="username"
-                v-bind:class="{ error: signupError.username }"
-                v-bind:placeholder="signupError.username"
-                @focus="signupError.username=''"
-              ></el-input>
+                :class="{ error: signupError.username }"
+                :placeholder="signupError.username"
+                @focus="signupError.username=''">
+              </el-input>
             </el-form-item>
             <el-form-item label="Email">
               <el-input
                 v-model="email"
-                v-bind:class="{ error: signupError.email }"
-                v-bind:placeholder="signupError.email"
-                @focus="signupError.email=''"
-              ></el-input>
+                :class="{ error: signupError.email }"
+                :placeholder="signupError.email"
+                @focus="signupError.email=''">
+              </el-input>
             </el-form-item>
             <el-form-item label="Password">
               <el-input type="password"
                 v-model="password"
-                v-bind:class="{ error: signupError.password }"
-                v-bind:placeholder="signupError.password"
-                @focus="signupError.password=''"
-              ></el-input>
+                :class="{ error: signupError.password }"
+                :placeholder="signupError.password"
+                @focus="signupError.password=''">
+              </el-input>
             </el-form-item>
           </el-form>
           <div style="text-align: right;">
-            <el-button type="success" @click="signup">Sign Up</el-button>
+            <el-button type="primary" @click="signup">Sign Up</el-button>
           </div>
         </el-card>
       </el-col>
@@ -47,6 +47,7 @@
 import axios from 'axios'
 import { SHA256 } from 'crypto-js'
 import { mapActions } from 'vuex'
+
 import { baseURL } from '../store/api'
 import { USER_LOGIN } from '../store/mutation-types'
 
@@ -116,7 +117,7 @@ export default {
 
 <style>
 .signup-view {
-  background-color: #181818;  
+  background-color: #181818;
   height: 100%;
 }
 .signup-view .signup-form {
@@ -130,6 +131,6 @@ export default {
   border-width: 2px;
 }
 .signup-view .el-button {
-  padding: 9px 25px;  
+  padding: 9px 25px;
 }
 </style>
