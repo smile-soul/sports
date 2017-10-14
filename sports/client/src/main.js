@@ -24,23 +24,6 @@ const router = new VueRouter({
   routes,
 })
 
-// check if logged in, if not, redirect to login page.
-router.beforeEach((to, from, next) => {
-  const { requiresAuth = true } = to.meta
-  if (requiresAuth) {
-    if (!store.state.user.token) {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath },
-      })
-    } else {
-      next()
-    }
-  } else {
-    next()
-  }
-})
-
 // sync the router with the vuex store.
 // this registers `store.state.route`
 sync(store, router)

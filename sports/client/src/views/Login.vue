@@ -72,17 +72,32 @@ export default {
       const headers = {
         'Content-Type': 'application/json',
       }
+      const data = {
+        username: this.username,
+        password: this.password,
+      }
       axios({
         baseURL,
         headers,
-        method: 'get',
+        method: 'post',
         url: 'username',
+        data,
       }).then((response) => {
-        console.log(response);
-
-        this.USER_LOGIN({ user: response.data, remember: this.remember })
-        const path = decodeURIComponent(this.$route.query.redirect || '/')
-        this.$router.push({ path })
+        const res = JSON.parse(response.data);
+        console.log(res);
+        if (res.auth) {
+          if (res.type === '0') {
+            // const path = decodeURIComponent(this.$route.query.redirect || '/')
+            this.$router.push({ path: '/' })
+          } else {
+          //   const path = decodeURIComponent(this.$route.query.redirect || '/baoming')
+            this.$router.push({ path: '/baoming' })
+          }
+        } else {
+          this.loginError.username = 'Username Or Password Error'
+          this.username = ''
+          this.password = ''
+        }
       }).catch((error) => {
         if (error.response.status === 401) {
           this.loginError.username = 'Username Or Password Error'
