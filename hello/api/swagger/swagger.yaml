@@ -14,7 +14,12 @@ tags:
   - name: "sportBase"
     description: "sport info base"
     externalDocs:
-      description: "sportBasesss"
+      description: "sportBase"
+      url: "http://localhost:8080"
+  - name: "user"
+    description: "sport info user"
+    externalDocs:
+      description: "user"
       url: "http://localhost:8080"
 schemes:
   # tip: remove http to make production-grade
@@ -27,6 +32,45 @@ consumes:
 produces:
   - application/json
 paths:
+  /username:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: user
+    post:
+      tags:
+        - "user"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: userinfo
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: object
+          required:
+            - username
+            - password
+          properties:
+            username:
+              type: string
+              example: 'admin'
+            password:
+              type: string
+              example: 'admin'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /sportinfo:
     # binds a127 app logic to a route
     x-swagger-router-controller: sportinfo

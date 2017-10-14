@@ -4,34 +4,28 @@
       <el-col :xs="20" :sm="10" :md="8" :lg="8" class="login-form">
         <el-card class="box-card">
           <div slot="header">
-            <span style="font-size: 16px">LOG IN</span>
+            <span style="font-size: 16px">运动会登录</span>
           </div>
           <el-form label-position="top">
-            <el-form-item label="Username">
-              <el-input
+            <el-form-item label="用户名">
+              <el-input type="text"
                 v-model="username"
                 :class="{ error: loginError.username }"
                 :placeholder="loginError.username"
                 @focus="loginError.username=''">
               </el-input>
             </el-form-item>
-            <el-form-item label="Pasword">
+            <el-form-item label="密码">
               <el-input type="password"
                 v-model="password"
-                :class="{ error: loginError.password }"
-                :placeholder="loginError.password"
-                @focus="loginError.password=''">
-              </el-input>
+                v-bind:class="{ error: loginError.password }"
+                v-bind:placeholder="loginError.password"
+                @focus="loginError.password=''"
+              ></el-input>
             </el-form-item>
           </el-form>
           <div class="login-footer">
-            <div class="checkbox">
-              <el-checkbox v-model="remember" style="color: inherit;">Remember</el-checkbox>
-            </div>
-            <el-button type="primary" @click="$router.push({ path: '/' })">Log In</el-button>
-          </div>
-          <div>
-            Not a member?<a href="javascript:;" @click="signup"> Sign up now</a>
+            <el-button type="success" @click="login()">Log In</el-button>
           </div>
         </el-card>
       </el-col>
@@ -78,18 +72,14 @@ export default {
       const headers = {
         'Content-Type': 'application/json',
       }
-      const data = {
-        username: this.username,
-        password: this.password,
-        remember: this.remember,
-      }
       axios({
         baseURL,
         headers,
-        method: 'post',
-        url: '/auth/login',
-        data: JSON.stringify(data),
+        method: 'get',
+        url: 'username',
       }).then((response) => {
+        console.log(response);
+
         this.USER_LOGIN({ user: response.data, remember: this.remember })
         const path = decodeURIComponent(this.$route.query.redirect || '/')
         this.$router.push({ path })
