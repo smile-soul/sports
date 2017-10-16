@@ -8,12 +8,6 @@ module.exports = {
   sportRoad: sportRoad
 };
 
-/*
-  Functions in a127 controllers used for operations should take two parameters:
-
-  Param 1: a handle to the request object
-  Param 2: a handle to the response object
- */
 function sportBaseget(req, res) {
   pool.getConnection(function(err, connection) {
     // Use the connection
