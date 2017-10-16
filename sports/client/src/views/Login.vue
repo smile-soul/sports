@@ -8,20 +8,11 @@
           </div>
           <el-form label-position="top">
             <el-form-item label="用户名">
-              <el-input type="text"
-                v-model="username"
-                :class="{ error: loginError.username }"
-                :placeholder="loginError.username"
-                @focus="loginError.username=''">
+              <el-input type="text" v-model="username" :class="{ error: loginError.username }" :placeholder="loginError.username" @focus="loginError.username=''">
               </el-input>
             </el-form-item>
             <el-form-item label="密码">
-              <el-input type="password"
-                v-model="password"
-                v-bind:class="{ error: loginError.password }"
-                v-bind:placeholder="loginError.password"
-                @focus="loginError.password=''"
-              ></el-input>
+              <el-input type="password" v-model="password" v-bind:class="{ error: loginError.password }" v-bind:placeholder="loginError.password" @focus="loginError.password=''"></el-input>
             </el-form-item>
           </el-form>
           <div class="login-footer">
@@ -35,10 +26,7 @@
 
 
 <script>
-import axios from 'axios'
 import { mapActions } from 'vuex'
-
-import { baseURL } from '../store/api'
 import { USER_LOGIN } from '../store/mutation-types'
 
 export default {
@@ -54,13 +42,16 @@ export default {
       },
     }
   },
-
   methods: {
-    ...mapActions([USER_LOGIN]),
     signup() {
       this.$router.push({ path: '/signup' })
     },
     login() {
+      const data = {
+        username: this.username,
+        password: this.password,
+      };
+      this.$store.dispatch(USER_LOGIN, data);
       if (!this.username) {
         this.loginError.username = 'Username Required'
         return false
@@ -68,45 +59,10 @@ export default {
         this.loginError.password = 'Password Required'
         return false
       }
-
-      const headers = {
-        'Content-Type': 'application/json',
-      }
-      const data = {
-        username: this.username,
-        password: this.password,
-      }
-      axios({
-        baseURL,
-        headers,
-        method: 'post',
-        url: 'username',
-        data,
-      }).then((response) => {
-        const res = JSON.parse(response.data);
-        console.log(res);
-        if (res.auth) {
-          if (res.type === '0') {
-            // const path = decodeURIComponent(this.$route.query.redirect || '/')
-            this.$router.push({ path: '/' })
-          } else {
-          //   const path = decodeURIComponent(this.$route.query.redirect || '/baoming')
-            this.$router.push({ path: '/baoming' })
-          }
-        } else {
-          this.loginError.username = 'Username Or Password Error'
-          this.username = ''
-          this.password = ''
-        }
-      }).catch((error) => {
-        if (error.response.status === 401) {
-          this.loginError.username = 'Username Or Password Error'
-          this.username = ''
-          this.password = ''
-        } else {
-          console.log('Server error！')
-        }
-      })
+      this.loginError.password = this.$store.state.user.loginError.password;
+      this.loginError.username = this.$store.state.user.loginError.username;
+      this.username = '';
+      this.password = '';
     },
   },
 }
@@ -118,31 +74,38 @@ export default {
   background-color: #181818;
   height: 100%;
 }
+
 .login-view .login-form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .login-view .el-card {
   border: none;
 }
+
 .login-view .el-card__header {
   border-color: #EFF2F7;
 }
+
 .login-view .el-input.error input {
   border-color: #E0B4B4;
   border-width: 2px;
 }
+
 .login-view .el-button {
   padding: 9px 25px;
 }
+
 .login-view .login-footer {
   margin: 25px 0;
   text-align: right;
   border-bottom: 1px solid #EFF2F7;
   padding-bottom: 25px;
 }
+
 .login-view .checkbox {
   float: left;
   display: inline-block;

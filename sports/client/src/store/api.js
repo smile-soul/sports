@@ -6,7 +6,9 @@ NProgress.configure({ showSpinner: false });
 
 
 const baseURL = 'http://localhost:10010/'
-
+const headers = {
+  'Content-Type': 'application/json',
+}
 function httpRequest() {
   NProgress.start()
   const config = {
@@ -72,4 +74,4 @@ function httpDelete(url, config = {}) {
   }).catch(handleError)
 }
 
-export { baseURL, httpGet, httpPut, httpPost, httpDelete }
+export { headers, baseURL, httpGet, httpPut, httpPost, httpDelete }

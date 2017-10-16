@@ -1,18 +1,13 @@
 import axios from 'axios'
-import { USER_LOGIN } from '../mutation-types'
+import { LINGDUI_SAVE } from '../mutation-types'
 import { baseURL, headers } from '../api';
 
 const module = {
   state: {
-    username: '',
-    password: '',
-    loginError: {
-      username: '',
-      password: '',
-    },
+
   },
   actions: {
-    [USER_LOGIN]({ commit, state }, data) {
+    [LINGDUI_SAVE]({ commit, state }, data) {
       axios({
         baseURL,
         headers,
