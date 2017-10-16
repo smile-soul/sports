@@ -63,9 +63,61 @@
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="女子报名">
+        <el-table :data="tableData" border style="width: 100%">
+          <el-table-column prop="nubmerid" label="号码" width="150">
+          </el-table-column>
+          <el-table-column prop="name" label="姓名" width="120">
+          </el-table-column>
+          <el-table-column prop="sex" label="性别" width="120">
+          </el-table-column>
+          <el-table-column prop="itemone" label="比赛项目1" width="140">
+            <template scope="scope">
+              <el-select v-model="value8" filterable placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+          <el-table-column prop="itemtwo" label="比赛项目2" width="140">
+            <template scope="scope">
+              <el-select v-model="value8" filterable placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+          <el-table-column prop="itemthree" label="比赛项目3" width="140">
+            <template scope="scope">
+              <el-select v-model="value8" filterable placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+          <el-table-column prop="itemfour" label="比赛项目4" width="140">
+            <template scope="scope">
+              <el-select v-model="value8" filterable placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+          <el-table-column prop="dateday" label="出生日期" width="120">
+          </el-table-column>
+          <el-table-column prop="resid" label="注册ID" width="120">
+          </el-table-column>
+          <el-table-column prop="type" label="比赛类型" width="140">
+            <template scope="scope">
+              <el-select v-model="value8" filterable placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+        </el-table>
         <el-form ref="baseInfoForm" label-width="100px" :model="baseInfoForm" :rules="rules">
           <el-form-item>
-            <el-button type="primary" @click="submitForm('baseInfoForm')">保存</el-button>
+            <el-button type="primary" @click="name()">保存</el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>
