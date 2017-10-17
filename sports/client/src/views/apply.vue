@@ -4,7 +4,7 @@
     <h4>{{ name.user }}</h4>
     <el-tabs type="border-card">
       <el-tab-pane label="男子报名">
-        <el-table :data="tableData" border style="width: 100%">
+        <el-table :data="tableDatamen" border style="width: 100%">
           <el-table-column prop="nubmerid" label="号码" width="150">
           </el-table-column>
           <el-table-column prop="name" label="姓名" width="120">
@@ -12,58 +12,36 @@
           <el-table-column prop="sex" label="性别" width="120">
           </el-table-column>
           <el-table-column prop="itemone" label="比赛项目1" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemtwo" label="比赛项目2" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemthree" label="比赛项目3" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemfour" label="比赛项目4" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="dateday" label="出生日期" width="120">
           </el-table-column>
           <el-table-column prop="resid" label="注册ID" width="120">
           </el-table-column>
           <el-table-column prop="type" label="比赛类型" width="140">
+          </el-table-column>
+          <el-table-column prop="opertion" label="操作" width="140">
             <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
+              <el-button @click.native.prevent="deleteRow(scope.$index, tableDatamen)" type="text" size="small">
+                移除
+              </el-button>
+              <el-button type="text" @click.native.prevent="changeRow(scope.$index, tableDatamen)" size="small">编辑</el-button>
             </template>
           </el-table-column>
         </el-table>
         <el-form ref="baseInfoForm" label-width="100px" :model="baseInfoForm" :rules="rules">
           <el-form-item>
-            <el-button type="primary" @click="name()">保存</el-button>
+            <el-button type="primary" @click="saveTable(tableDatamen)">保存</el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="女子报名">
-        <el-table :data="tableData" border style="width: 100%">
+         <el-table :data="tableDatawomen" border style="width: 100%">
           <el-table-column prop="nubmerid" label="号码" width="150">
           </el-table-column>
           <el-table-column prop="name" label="姓名" width="120">
@@ -71,53 +49,31 @@
           <el-table-column prop="sex" label="性别" width="120">
           </el-table-column>
           <el-table-column prop="itemone" label="比赛项目1" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemtwo" label="比赛项目2" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemthree" label="比赛项目3" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="itemfour" label="比赛项目4" width="140">
-            <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </template>
           </el-table-column>
           <el-table-column prop="dateday" label="出生日期" width="120">
           </el-table-column>
           <el-table-column prop="resid" label="注册ID" width="120">
           </el-table-column>
           <el-table-column prop="type" label="比赛类型" width="140">
+          </el-table-column>
+          <el-table-column prop="opertion" label="操作" width="140">
             <template scope="scope">
-              <el-select v-model="value8" filterable placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
+              <el-button @click.native.prevent="deleteRow(scope.$index, tableDatawomen)" type="text" size="small">
+                移除
+              </el-button>
+              <el-button type="text" @click.native.prevent="changeRow(scope.$index, tableDatawomen)" size="small">编辑</el-button>
             </template>
           </el-table-column>
         </el-table>
         <el-form ref="baseInfoForm" label-width="100px" :model="baseInfoForm" :rules="rules">
           <el-form-item>
-            <el-button type="primary" @click="name()">保存</el-button>
+            <el-button type="primary" @click="saveTable(tableDatawomen)">保存</el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>
@@ -160,6 +116,44 @@
         </el-form>
       </el-tab-pane>
     </el-tabs>
+      <el-dialog title="提示" :visible.sync="dialogVisible" size="tiny" :before-close="handleClose">
+            <el-form :label-position="labelPosition" label-width="80px">
+            <el-form-item label="号码">
+              <el-input v-model="editData.nubmerid"></el-input>
+            </el-form-item>
+            <el-form-item label="姓名">
+              <el-input v-model="editData.name"></el-input>
+            </el-form-item>
+            <el-form-item label="性别">
+              <el-input v-model="editData.sex"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目1">
+              <el-input v-model="editData.itemone"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目2">
+              <el-input v-model="editData.itemtwo"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目3">
+              <el-input v-model="editData.itemthree"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目4">
+              <el-input v-model="editData.itemfour"></el-input>
+            </el-form-item>
+            <el-form-item label="出生日期">
+              <el-input v-model="editData.dateday"></el-input>
+            </el-form-item>
+            <el-form-item label="注册id">
+              <el-input v-model="editData.resid"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛类型">
+              <el-input v-model="editData.type"></el-input>
+            </el-form-item>
+          </el-form>
+              <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="savedata()">确 定</el-button>
+              </span>
+              </el-dialog>
   </div>
 </template>
 
@@ -173,7 +167,23 @@ export default {
   name: 'sports-items-view',
   data() {
     return {
+      dialogVisible: false,
       labelPosition: 'right',
+      itemone: '',
+      itemtwo: '',
+      baoming: [{
+        numberid: '',
+        name: '',
+        itemone: '',
+        itemtwo: '',
+        itemthree: '',
+        itemfour: '',
+        sex: '',
+        dateday: '',
+        resid: '',
+        type: '',
+      }],
+      value8: '',
       coach: {
         unitname: '',
         groupname: '',
@@ -183,45 +193,70 @@ export default {
         worker: '',
         tel: '',
       },
-      options: [{
-        value: '选项1',
-        label: '黄金糕',
-      }, {
-        value: '选项2',
-        label: '双皮奶',
-      }, {
-        value: '选项3',
-        label: '蚵仔煎',
-      }, {
-        value: '选项4',
-        label: '龙须面',
-      }, {
-        value: '选项5',
-        label: '北京烤鸭',
-      }],
-      value8: '',
+      options: [],
       baseInfoForm: {
         sportsName: '',
         sportsGroup: '',
       },
       rules: {},
       unitname: 'dsdsds',
-      tableData: [],
+      tableDatamen: [],
+      editData: {},
+      tableDatawomen: [],
     }
   },
   methods: {
     handleClick(row) {
       console.log(row);
     },
+    changeSelect(data, items) {
+      console.log(data);
+      console.log(items);
+    },
+    saveTable(tableDatamen) {
+      axios({
+        baseURL,
+        headers,
+        method: 'post',
+        url: 'applyinfo',
+        data: tableDatamen,
+      });
+    },
+    changeRow(index, rows) {
+      this.dialogVisible = true;
+      this.editData = rows[index];
+    },
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
+    },
+    savedata(){
+      this.dialogVisible = false;
+      const newdata = [];
+      newdata.push(this.editData);
+      axios({
+        baseURL,
+        headers,
+        method: 'put',
+        url: 'applyinfo',
+        data: newdata,
+      });
+    },
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          done();
+        })
+        .catch(_ => { });
+    },
     coachsubmit() {
       const datainfo = {
         unitname: this.coach["unitname"],
-          groupname: this.coach["groupname"],
-          groupleader: this.coach["groupleader"],
-          coach: this.coach["coach"],
-          doctor: this.coach["doctor"],
-          worker: this.coach["worker"],
-          tel: Number(this.coach["tel"]),
+        groupname: this.coach["groupname"],
+        groupleader: this.coach["groupleader"],
+        coach: this.coach["coach"],
+        doctor: this.coach["doctor"],
+        worker: this.coach["worker"],
+        tel: Number(this.coach["tel"]),
       }
       axios({
         baseURL,
@@ -268,8 +303,29 @@ export default {
         method: 'get',
         url: 'applyinfo',
       }).then((response) => {
-        this.tableData = response.data;
-        console.log(response.data);
+        this.tableDatamen = response.data;
+      });
+      axios({
+        baseURL,
+        headers,
+        method: 'get',
+        url: 'applyinfowomen',
+      }).then((response) => {
+        this.tableDatawomen = response.data;
+      });
+      axios({
+        baseURL,
+        headers,
+        method: 'get',
+        url: 'item',
+      }).then((response) => {
+        response.data.map((value) => {
+          this.options.push({
+            value: value["item"],
+            label: value["item"],
+            number: value["limitnumber"]
+          })
+        });
       });
     })
   }

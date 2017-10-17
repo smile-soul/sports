@@ -22,6 +22,7 @@ function applyinfowomenget(req, res) {
 function applyinfowomenpost(req, res) {
   const bodyname = req.swagger.params.body.value;
   pool.getConnection(function (err, connection) {
+    connection.query('TRUNCATE TABLE baomingwomen');
     bodyname.map((value) => {
       connection.query(`insert into baomingwomen (type,name, itemone ,itemtwo ,itemthree, itemfour, sex, dateday, resid, nubmerid) values(
       ${getjson(value["type"])},
