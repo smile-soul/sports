@@ -41,7 +41,7 @@ function sportBaseput(req, res) {
 
 function sportRoad(req, res) {
   pool.getConnection(function(err, connection) {
-    connection.query(`select * from sportRoad`, function (error, results, fields) {
+    connection.query(`select * from sportroad`, function (error, results, fields) {
       res.send(results);
       connection.release();
       if (error) throw error;
