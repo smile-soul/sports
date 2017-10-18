@@ -2,6 +2,7 @@
   <div class="sports-items-view">
     <h1>比赛项目</h1>
     <h4>{{ name.user }}</h4>
+    <el-button type="text" @click.native.prevent="increaseRow()" size="small">新增</el-button>
     <el-tabs type="border-card">
       <el-tab-pane label="男子报名">
         <el-table :data="tableDatamen" border style="width: 100%">
@@ -154,6 +155,44 @@
                     <el-button type="primary" @click="savedata()">确 定</el-button>
               </span>
               </el-dialog>
+      <el-dialog title="提示" :visible.sync="dialogVisibleincres" size="tiny" :before-close="handleClose">
+            <el-form :label-position="labelPosition" label-width="80px">
+            <el-form-item label="号码">
+              <el-input v-model="editData.nubmerid"></el-input>
+            </el-form-item>
+            <el-form-item label="姓名">
+              <el-input v-model="editData.name"></el-input>
+            </el-form-item>
+            <el-form-item label="性别">
+              <el-input v-model="editData.sex"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目1">
+              <el-input v-model="editData.itemone"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目2">
+              <el-input v-model="editData.itemtwo"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目3">
+              <el-input v-model="editData.itemthree"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛项目4">
+              <el-input v-model="editData.itemfour"></el-input>
+            </el-form-item>
+            <el-form-item label="出生日期">
+              <el-input v-model="editData.dateday"></el-input>
+            </el-form-item>
+            <el-form-item label="注册id">
+              <el-input v-model="editData.resid"></el-input>
+            </el-form-item>
+            <el-form-item label="比赛类型">
+              <el-input v-model="editData.type"></el-input>
+            </el-form-item>
+          </el-form>
+              <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisibleincres = false">取 消</el-button>
+                    <el-button type="primary" @click="savedataincres()">确 定</el-button>
+              </span>
+              </el-dialog>
   </div>
 </template>
 
@@ -168,6 +207,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      dialogVisibleincres: false,
       labelPosition: 'right',
       itemone: '',
       itemtwo: '',
@@ -201,13 +241,27 @@ export default {
       rules: {},
       unitname: 'dsdsds',
       tableDatamen: [],
-      editData: {},
+      editData: {
+        numberid: '',
+        name: '',
+        itemone: '',
+        itemtwo: '',
+        itemthree: '',
+        itemfour: '',
+        sex: '',
+        dateday: '',
+        resid: '',
+        type: '',
+      },
       tableDatawomen: [],
     }
   },
   methods: {
     handleClick(row) {
       console.log(row);
+    },
+    increaseRow() {
+      this.dialogVisibleincres = true;
     },
     changeSelect(data, items) {
       console.log(data);
@@ -220,6 +274,28 @@ export default {
         method: 'post',
         url: 'applyinfo',
         data: tableDatamen,
+      });
+    },
+    savedataincres() {
+      this.dialogVisibleincres = false;
+      const data = {
+        numberid: this.editData.nubmerid,
+        name: this.editData.name,
+        itemone: this.editData.itemone,
+        itemtwo: this.editData.itemtwo,
+        itemthree: this.editData.itemthree,
+        itemfour: this.editData.itemfour,
+        sex: this.editData.sex,
+        dateday: this.editData.dateday,
+        resid: this.editData.resid,
+        type: this.editData.type,
+      };
+      axios({
+        baseURL,
+        headers,
+        method: 'post',
+        url: 'applyinfo',
+        data: data,
       });
     },
     changeRow(index, rows) {

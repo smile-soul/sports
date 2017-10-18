@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-cd /opt/client
+cd /opt
 ls
 npm run dev
 

@@ -148,7 +148,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /applyinfowomen:
+  /applyinfoAllwomen:
     # binds a127 app logic to a route
     x-swagger-router-controller: applyinfowomen
     post:
@@ -156,7 +156,7 @@ paths:
         - "apply"
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
-      operationId: applyinfowomenpost
+      operationId: applyinfowomenallpost
       consumes:
       - "application/json"
       parameters:
@@ -211,6 +211,78 @@ paths:
               type:
                 type: string
                 example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfowomen:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfowomen
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfowomenpost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: "object"
+          required:
+            - nubmerid
+            - name
+            - itemone
+            - itemtwo
+            - itemthree
+            - itemfour
+            - sex
+            - dateday
+            - resid
+            - type
+          properties:
+            nubmerid:
+              type: integer
+              example: 1122
+            name:
+              type: string
+              example: 'admin'
+            itemone:
+              type: string
+              example: 'admin'
+            itemtwo:
+              type: string
+              example: 'admin'
+            itemthree:
+              type: string
+              example: 'admin'
+            itemfour:
+              type: string
+              example: 'admin'
+            sex:
+              type: string
+              example: 'admin'
+            dateday:
+              type: string
+              format: date
+              example: '2016-04-01'
+            resid:
+              type: integer
+              example: 1111
+            type:
+              type: string
+              example: 'ssss'
       responses:
         "200":
           description: Success
@@ -312,7 +384,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /applyinfo:
+  /applyinfoall:
     # binds a127 app logic to a route
     x-swagger-router-controller: applyinfo
     post:
@@ -320,7 +392,7 @@ paths:
         - "apply"
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
-      operationId: applyinfopost
+      operationId: applyinfoAllpost
       consumes:
       - "application/json"
       parameters:
@@ -375,6 +447,78 @@ paths:
               type:
                 type: string
                 example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfo:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfo
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfopost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: "object"
+          required:
+            - nubmerid
+            - name
+            - itemone
+            - itemtwo
+            - itemthree
+            - itemfour
+            - sex
+            - dateday
+            - resid
+            - type
+          properties:
+            nubmerid:
+              type: integer
+              example: 1122
+            name:
+              type: string
+              example: 'admin'
+            itemone:
+              type: string
+              example: 'admin'
+            itemtwo:
+              type: string
+              example: 'admin'
+            itemthree:
+              type: string
+              example: 'admin'
+            itemfour:
+              type: string
+              example: 'admin'
+            sex:
+              type: string
+              example: 'admin'
+            dateday:
+              type: string
+              format: date
+              example: '2016-04-01'
+            resid:
+              type: integer
+              example: 1111
+            type:
+              type: string
+              example: 'ssss'
       responses:
         "200":
           description: Success

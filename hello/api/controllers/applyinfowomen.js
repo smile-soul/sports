@@ -5,7 +5,8 @@ const util = require('util');
 module.exports = {
   applyinfowomenget: applyinfowomenget,
   applyinfowomenpost: applyinfowomenpost,
-  applyinfowomenput: applyinfowomenput
+  applyinfowomenput: applyinfowomenput,
+  applyinfowomenallpost: applyinfowomenallpost,
 };
 
 function applyinfowomenget(req, res) {
@@ -20,6 +21,27 @@ function applyinfowomenget(req, res) {
 }
 
 function applyinfowomenpost(req, res) {
+  const bodyname = req.swagger.params.body.value;
+  pool.getConnection(function (err, connection) {
+      connection.query(`insert into baomingwomen (type,name, itemone ,itemtwo ,itemthree, itemfour, sex, dateday, resid, nubmerid) values(
+      ${getjson(bodyname["type"])},
+      ${getjson(bodyname["name"])},
+      ${getjson(bodyname["itemone"])},
+      ${getjson(bodyname["itemtwo"])},
+      ${getjson(bodyname["itemthree"])},
+      ${getjson(bodyname["itemfour"])},
+      ${getjson(bodyname["sex"])},
+      ${getjson(bodyname["dateday"])},
+      ${getjson(bodyname["resid"])},
+      ${getjson(bodyname["nubmerid"])})`, function (error, results, fields) {
+          res.send(results);
+          connection.release();
+          if (error) throw error;
+        });
+  });
+}
+
+function applyinfowomenallpost(req, res) {
   const bodyname = req.swagger.params.body.value;
   pool.getConnection(function (err, connection) {
     connection.query('TRUNCATE TABLE baomingwomen');
