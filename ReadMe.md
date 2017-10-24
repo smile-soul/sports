@@ -9,4 +9,4 @@
 
 #### 后端API查询界面
 
-* `cd sports`目录下, 全局安装`yarn global add strongloop 或者 npm install -g strongloop`, 然后运行 `slc run`,在http://127.0.0.1:3000/api 可访问api界面
+* `cd server`目录下, 全局安装`yarn global add swagger-cli 或者 npm install -g swagger-cli`, 然后运行 `swagger project start`,在`http://localhost:10010/static/#/`  可访问api界面
