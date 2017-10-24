@@ -1,0 +1,849 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Sport
+  license:
+    name: "Front"
+    url: "http://localhost:8080"
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+#tags
+tags:
+  - name: "sportBase"
+    description: "sport info base"
+    externalDocs:
+      description: "sportBase"
+      url: "http://localhost:8080"
+  - name: "user"
+    description: "sport info user"
+    externalDocs:
+      description: "user"
+      url: "http://localhost:8080"
+  - name: "coach"
+    description: "sport info coach"
+    externalDocs:
+      description: "coach"
+      url: "http://localhost:8080"
+  - name: "apply"
+    description: "sport info apply"
+    externalDocs:
+      description: "apply"
+      url: "http://localhost:8080"
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /item:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: item
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: itempost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - itemproject
+              - limitnumber
+            properties:
+              id:
+                type: integer
+                example: 1122
+              itemproject:
+                type: string
+                example: 'admin'
+              limitnumber:
+                type: integer
+                example: 1122
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: itemput
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - itemproject
+              - limitnumber
+              - id
+            properties:
+              id:
+                type: integer
+                example: 1122
+              itemproject:
+                type: string
+                example: 'admin'
+              limitnumber:
+                type: integer
+                example: 1122
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: itemget
+      consumes:
+      - "application/json"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfoAllwomen:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfowomen
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfowomenallpost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - nubmerid
+              - name
+              - itemone
+              - itemtwo
+              - itemthree
+              - itemfour
+              - sex
+              - dateday
+              - resid
+              - type
+            properties:
+              nubmerid:
+                type: integer
+                example: 1122
+              name:
+                type: string
+                example: 'admin'
+              itemone:
+                type: string
+                example: 'admin'
+              itemtwo:
+                type: string
+                example: 'admin'
+              itemthree:
+                type: string
+                example: 'admin'
+              itemfour:
+                type: string
+                example: 'admin'
+              sex:
+                type: string
+                example: 'admin'
+              dateday:
+                type: string
+                format: date
+                example: '2016-04-01'
+              resid:
+                type: integer
+                example: 1111
+              type:
+                type: string
+                example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfowomen:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfowomen
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfowomenpost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: "object"
+          required:
+            - nubmerid
+            - name
+            - itemone
+            - itemtwo
+            - itemthree
+            - itemfour
+            - sex
+            - dateday
+            - resid
+            - type
+          properties:
+            nubmerid:
+              type: integer
+              example: 1122
+            name:
+              type: string
+              example: 'admin'
+            itemone:
+              type: string
+              example: 'admin'
+            itemtwo:
+              type: string
+              example: 'admin'
+            itemthree:
+              type: string
+              example: 'admin'
+            itemfour:
+              type: string
+              example: 'admin'
+            sex:
+              type: string
+              example: 'admin'
+            dateday:
+              type: string
+              format: date
+              example: '2016-04-01'
+            resid:
+              type: integer
+              example: 1111
+            type:
+              type: string
+              example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfowomenput
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - nubmerid
+              - name
+              - itemone
+              - itemtwo
+              - itemthree
+              - itemfour
+              - sex
+              - dateday
+              - resid
+              - type
+            properties:
+              nubmerid:
+                type: integer
+                example: 33333
+              name:
+                type: string
+                example: 'admin'
+              itemone:
+                type: string
+                example: 'admin'
+              itemtwo:
+                type: string
+                example: 'admin'
+              itemthree:
+                type: string
+                example: 'admin'
+              itemfour:
+                type: string
+                example: 'admin'
+              sex:
+                type: string
+                example: 'admin'
+              dateday:
+                type: string
+                format: date
+                example: '2016-04-01'
+              resid:
+                type: integer
+                example: 1111
+              type:
+                type: string
+                example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfowomenget
+      consumes:
+      - "application/json"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfoall:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfo
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfoAllpost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - nubmerid
+              - name
+              - itemone
+              - itemtwo
+              - itemthree
+              - itemfour
+              - sex
+              - dateday
+              - resid
+              - type
+            properties:
+              nubmerid:
+                type: integer
+                example: 1122
+              name:
+                type: string
+                example: 'admin'
+              itemone:
+                type: string
+                example: 'admin'
+              itemtwo:
+                type: string
+                example: 'admin'
+              itemthree:
+                type: string
+                example: 'admin'
+              itemfour:
+                type: string
+                example: 'admin'
+              sex:
+                type: string
+                example: 'admin'
+              dateday:
+                type: string
+                format: date
+                example: '2016-04-01'
+              resid:
+                type: integer
+                example: 1111
+              type:
+                type: string
+                example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /applyinfo:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: applyinfo
+    post:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfopost
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: "object"
+          required:
+            - nubmerid
+            - name
+            - itemone
+            - itemtwo
+            - itemthree
+            - itemfour
+            - sex
+            - dateday
+            - resid
+            - type
+          properties:
+            nubmerid:
+              type: integer
+              example: 1122
+            name:
+              type: string
+              example: 'admin'
+            itemone:
+              type: string
+              example: 'admin'
+            itemtwo:
+              type: string
+              example: 'admin'
+            itemthree:
+              type: string
+              example: 'admin'
+            itemfour:
+              type: string
+              example: 'admin'
+            sex:
+              type: string
+              example: 'admin'
+            dateday:
+              type: string
+              format: date
+              example: '2016-04-01'
+            resid:
+              type: integer
+              example: 1111
+            type:
+              type: string
+              example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfoput
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: array
+          items:
+            type: "object"
+            required:
+              - nubmerid
+              - name
+              - itemone
+              - itemtwo
+              - itemthree
+              - itemfour
+              - sex
+              - dateday
+              - resid
+              - type
+            properties:
+              nubmerid:
+                type: integer
+                example: 33333
+              name:
+                type: string
+                example: 'admin'
+              itemone:
+                type: string
+                example: 'admin'
+              itemtwo:
+                type: string
+                example: 'admin'
+              itemthree:
+                type: string
+                example: 'admin'
+              itemfour:
+                type: string
+                example: 'admin'
+              sex:
+                type: string
+                example: 'admin'
+              dateday:
+                type: string
+                format: date
+                example: '2016-04-01'
+              resid:
+                type: integer
+                example: 1111
+              type:
+                type: string
+                example: 'ssss'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      tags:
+        - "apply"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: applyinfoget
+      consumes:
+      - "application/json"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /coachinfo:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: coachinfo
+    put:
+      tags:
+        - "coach"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: coachinfoput
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: object
+          required:
+            - unitname
+            - groupname
+            - groupleader
+            - coach
+            - doctor
+            - worker
+            - tel
+          properties:
+            unitname:
+              type: string
+              example: 'admin'
+            groupname:
+              type: string
+              example: 'admin'
+            groupleader:
+              type: string
+              example: 'admin'
+            coach:
+              type: string
+              example: 'admin'
+            doctor:
+              type: string
+              example: 'admin'
+            worker:
+              type: string
+              example: 'admin'
+            tel:
+              type: integer
+              example: 1111
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      tags:
+        - "coach"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: coachinfoget
+      consumes:
+      - "application/json"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /username:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: user
+    post:
+      tags:
+        - "user"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: userinfo
+      consumes:
+      - "application/json"
+      parameters:
+      - in: body
+        name: body
+        description: input username and password
+        required: true
+        schema:
+          type: object
+          required:
+            - username
+            - password
+          properties:
+            username:
+              type: string
+              example: 'admin'
+            password:
+              type: string
+              example: 'admin'
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /sportinfo:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: sportinfo
+    get:
+      tags:
+        - "sportBase"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportBaseget
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      tags:
+        - "sportBase"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportBaseput
+      parameters:
+        - name: body
+          in: body
+          description: The name of the person to whom to say hello
+          required: true
+          schema:
+            type: object
+            required:
+              - "sportname"
+              - "sportBeginTime"
+              - "sportEndTime"
+              - "sportday"
+              - "straroad"
+              - "benroad"
+              - "methodroad"
+              - "comgroup"
+            properties:
+              sportname:
+                type: string
+                example: "yundonghui"
+              sportBeginTime:
+                type: string
+                example: "2017-2-1"
+              sportEndTime:
+                type: string
+                example: "2017-2-1"
+              sportday:
+                type: integer
+                example: 2
+              straroad:
+                type: string
+                example: "一道"
+              benroad:
+                type: string
+                example: "一道"
+              methodroad:
+                type: string
+                example: "手记时"
+              comgroup:
+                type: string
+                example: "['A组', 'B组']"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /sportsAllroad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: sportinfo
+    # x-swagger-router-handle-subpaths": true
+    get:
+      tags:
+        - "sportBase"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportRoad
+      responses:
+        "200":
+          description: Success
+        # responses may fall through to errors
+        default:
+          description: Error
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
