@@ -1,6 +1,6 @@
 ### 技术栈
 * 前端：vue + element + webpack
-* 后端：node + loopback + mysql
+* 后端：node + swagger + mysql
 
 #### 前端启动项目
 

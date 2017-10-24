@@ -18,7 +18,7 @@ yarn
 # 启动json-server（模拟api接口）
 yarn mock
 # 以开发模式启动项目
-yarn dev
+yarn start
 # 编译打包用于生产环境的文件
 yarn build
 ```
