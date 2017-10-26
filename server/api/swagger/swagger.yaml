@@ -847,3 +847,9 @@ definitions:
     properties:
       message:
         type: string
+  ErrorResponses:
+    required:
+      - message
+    properties:
+      message:
+        type: string
