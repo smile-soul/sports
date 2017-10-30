@@ -1,0 +1,82 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Sport
+  license:
+    name: "Front"
+    url: "http://localhost:8080"
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+#tags
+tags:
+  - name: "sportBase"
+    description: "sport info base"
+    externalDocs:
+      description: "sportBase"
+      url: "http://localhost:8080"
+  - name: "user"
+    description: "sport info user"
+    externalDocs:
+      description: "user"
+      url: "http://localhost:8080"
+  - name: "coach"
+    description: "sport info coach"
+    externalDocs:
+      description: "coach"
+      url: "http://localhost:8080"
+  - name: "apply"
+    description: "sport info apply"
+    externalDocs:
+      description: "apply"
+      url: "http://localhost:8080"
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /sportsAllroad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: sportinfo
+    # x-swagger-router-handle-subpaths": true
+    get:
+      tags:
+        - "coach"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportRoad
+      responses:
+        "200":
+          description: 成功
+        "401":
+          description: 没有权限
+        "503":
+          description: 服务器内部错误
+  /sportsAllroads:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: sportinfo
+    # x-swagger-router-handle-subpaths": true
+    get:
+      tags:
+        - "sportBase"
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: sportRoad
+      responses:
+        "200":
+          description: 成功
+        "401":
+          description: 没有权限
+        "503":
+          description: 服务器内部错误
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
