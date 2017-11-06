@@ -11,7 +11,7 @@ module.exports = {
 function sportBaseget(req, res) {
   pool.getConnection(function(err, connection) {
     // Use the connection
-    connection.query('select * from sportInfo', function (error, results, fields) {
+    connection.query('select * from bend', function (error, results, fields) {
       res.send(results);
       connection.release();
       if (error) throw error;

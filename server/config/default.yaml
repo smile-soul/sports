@@ -1,3 +1,12 @@
+responses: &responses
+    "200":
+      description: 成功
+    "401":
+      description: 没有权限
+    "429":
+      description: 请求次数过多
+    "503":
+      description: 服务器内部错误
 swagger: "2.0"
 info:
   version: "0.0.1"
@@ -42,6 +51,17 @@ consumes:
 produces:
   - application/json
 paths:
+  /aaaa:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: aaa
+    # x-swagger-router-handle-subpaths": true
+    get:
+      tags:
+        - "baseinfo"
+      description: Returns all methods
+      # used as the method name of the controller
+      operationId: aaaa
+      responses: *responses
   /applyinfo:
     # binds a127 app logic to a route
     x-swagger-router-controller: applyinfo
