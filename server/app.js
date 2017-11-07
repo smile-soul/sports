@@ -4,9 +4,10 @@ const SwaggerExpress = require('swagger-express-mw');
 const express = require('express');
 const app = require('express')();
 const mysql = require('mysql');
+const path = require('path');
 
 const pool = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 20,
   host: "127.0.0.1",
   user: "root",
   password: "",
@@ -18,7 +19,8 @@ module.exports = app; // for testing
 app.use('/static', express.static('public'));
 app.use('/api', express.static('api/swagger/'));
 const config = {
-  appRoot: __dirname // required config
+  appRoot: __dirname, // required config
+  swaggerUi: path.join(__dirname, '/sportbase.yaml'),
 };
 
 SwaggerExpress.create(config, function(err, swaggerExpress) {

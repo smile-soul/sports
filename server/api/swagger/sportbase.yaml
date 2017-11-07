@@ -36,10 +36,10 @@ consumes:
 produces:
   - application/json
 paths:
-  /aaaa:
+  /sportsAllBends:
     # binds a127 app logic to a route
-    x-swagger-router-controller: aaa
-    # x-swagger-router-handle-subpaths": true
+    x-swagger-router-controller: baseinfo
+    x-swagger-router-handle-subpaths": true
     get:
       tags:
         - "baseinfo"
@@ -47,7 +47,7 @@ paths:
         - application/json
       description: Returns all methods
       # used as the method name of the controller
-      operationId: aaaa
+      operationId: sportsAllBends
       responses: *responses
   # /sportsAllStraights:
   #   # binds a127 app logic to a route
@@ -62,6 +62,7 @@ paths:
   #     # used as the method name of the controller
   #     operationId: sportsAllStraight
   #     responses: *responses
+  #     headers:
   # /sportsAllBends:
   #   # binds a127 app logic to a route
   #   x-swagger-router-controller: baseinfo
@@ -75,16 +76,16 @@ paths:
   #     # used as the method name of the controller
   #     operationId: sportsAllBend
   #     responses: *responses
-  /sportinfo:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: sportinfo
-    get:
-      tags:
-        - "baseinfo"
-      description: Returns 'Hello' to the caller
-      # used as the method name of the controller
-      operationId: sportBaseget
-      responses: *responses
+  # /sportinfo:
+  #   # binds a127 app logic to a route
+  #   x-swagger-router-controller: sportinfo
+  #   get:
+  #     tags:
+  #       - "baseinfo"
+  #     description: Returns 'Hello' to the caller
+  #     # used as the method name of the controller
+  #     operationId: sportBaseget
+  #     responses: *responses
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
