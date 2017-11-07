@@ -14,7 +14,7 @@ info:
   license:
     name: "Front"
     url: "http://localhost:8080"
-host: localhost:10010
+host: localhost:8080
 basePath: /
 tags:
   - name: "baseinfo"
@@ -51,7 +51,6 @@ paths:
       description: Returns all straight roads
       operationId: sportsAllStraight
       responses: *responses
-      headers:
   /sportsAllBend:
     x-swagger-router-controller: baseinfo
     get:

@@ -14,11 +14,8 @@ info:
   license:
     name: "Front"
     url: "http://localhost:8080"
-# during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths
 basePath: /
-#tags
 tags:
   - name: "baseinfo"
     description: "sport info base"
@@ -26,19 +23,15 @@ tags:
       description: "sportBase"
       url: "http://localhost:8080"
 schemes:
-  # tip: remove http to make production-grade
   - http
   - https
-# format of bodies a client can send (Content-Type)
 consumes:
   - application/json
-# format of the responses to the client (Accepts)
 produces:
   - application/json
 paths:
-  /aaaa:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: baseinfoa
+  /sportsAllMethod:
+    x-swagger-router-controller: baseinfo
     x-swagger-router-handle-subpaths": true
     get:
       tags:
@@ -46,46 +39,27 @@ paths:
       consumes:
         - application/json
       description: Returns all methods
-      # used as the method name of the controller
-      operationId: aaaa
+      operationId: sportsAllBends
       responses: *responses
-  # /sportsAllStraights:
-  #   # binds a127 app logic to a route
-  #   x-swagger-router-controller: baseinfo
-  #   # x-swagger-router-handle-subpaths": true
-  #   get:
-  #     tags:
-  #       - "baseinfo"
-  #     consumes:
-  #       - "application/json"
-  #     description: Returns all straight roads
-  #     # used as the method name of the controller
-  #     operationId: sportsAllStraight
-  #     responses: *responses
-  #     headers:
-  # /sportsAllBends:
-  #   # binds a127 app logic to a route
-  #   x-swagger-router-controller: baseinfo
-  #   # x-swagger-router-handle-subpaths": true
-  #   get:
-  #     tags:
-  #       - "baseinfo"
-  #     consumes:
-  #       - "application/json"
-  #     description: Returns all bend roads
-  #     # used as the method name of the controller
-  #     operationId: sportsAllBend
-  #     responses: *responses
-  # /sportinfo:
-  #   # binds a127 app logic to a route
-  #   x-swagger-router-controller: sportinfo
-  #   get:
-  #     tags:
-  #       - "baseinfo"
-  #     description: Returns 'Hello' to the caller
-  #     # used as the method name of the controller
-  #     operationId: sportBaseget
-  #     responses: *responses
+  /sportsAllStraight:
+    x-swagger-router-controller: baseinfo
+    get:
+      tags:
+        - "baseinfo"
+      consumes:
+        - "application/json"
+      description: Returns all straight roads
+      operationId: sportsAllStraight
+      responses: *responses
+  /sportsAllBend:
+    x-swagger-router-controller: baseinfo
+    get:
+      tags:
+        - "baseinfo"
+      consumes:
+        - "application/json"
+      description: Returns all bend roads
+      operationId: sportsAllBend
+      responses: *responses
   /swagger:
     x-swagger-pipe: swagger_raw
-# complex objects have schema definitions
