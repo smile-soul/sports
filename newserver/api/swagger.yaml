@@ -30,9 +30,18 @@ consumes:
 produces:
   - application/json
 paths:
+  /sportInfo:
+    x-swagger-router-controller: baseinfo
+    get:
+      tags:
+        - "baseinfo"
+      consumes:
+        - application/json
+      description: Returns all info
+      operationId: sportInfo
+      responses: *responses
   /sportsAllMethod:
     x-swagger-router-controller: baseinfo
-    x-swagger-router-handle-subpaths": true
     get:
       tags:
         - "baseinfo"
