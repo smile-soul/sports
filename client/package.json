@@ -7,7 +7,9 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "mock": "cd src/mock && node server.js"
+    "mock": "cd src/mock && node server.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "node-sass": "^4.5.3",
@@ -15,7 +17,8 @@
     "passport": "^0.4.0",
     "sass-loader": "^6.0.6",
     "vue": "^2.2.2",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -76,5 +79,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "snyk": true
 }
