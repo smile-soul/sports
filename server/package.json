@@ -12,7 +12,8 @@
     "express": "^4.12.3",
     "mysql": "^2.15.0",
     "swagger-decorator": "^0.0.22",
-    "swagger-express-mw": "^0.1.0"
+    "swagger-express-mw": "^0.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "should": "^7.1.0",
@@ -20,6 +21,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "swagger project test"
-  }
+    "test": "swagger project test",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
