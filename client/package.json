@@ -16,7 +16,7 @@
     "nprogress": "^0.2.0",
     "passport": "^0.4.0",
     "sass-loader": "^6.0.6",
-    "vue": "^2.2.2",
+    "vue": "^2.5.17",
     "vue-router": "^2.2.0",
     "snyk": "^1.85.0"
   },
