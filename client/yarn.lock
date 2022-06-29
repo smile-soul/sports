@@ -4138,12 +4138,14 @@ passport-strategy@1.x.x:
   version "1.0.0"
   resolved "http://r.cnpmjs.org/passport-strategy/download/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
 
-passport@^0.4.0:
-  version "0.4.0"
-  resolved "http://r.cnpmjs.org/passport/download/passport-0.4.0.tgz#c5095691347bd5ad3b5e180238c3914d16f05811"
+passport@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/passport/-/passport-0.6.0.tgz#e869579fab465b5c0b291e841e6cc95c005fac9d"
+  integrity sha512-0fe+p3ZnrWRW74fe8+SvCyf4a3Pb2/h7gFkQ8yTJpAO50gDzlfjZUZTO1k5Eg9kUct22OxHLqDZoKUWRHOh9ug==
   dependencies:
     passport-strategy "1.x.x"
     pause "0.0.1"
+    utils-merge "^1.0.1"
 
 path-browserify@0.0.0:
   version "0.0.0"
@@ -5145,6 +5147,11 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
+snyk@^1.85.0:
+  version "1.961.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.961.0.tgz#862662983b9155208c7dd37f5e118c5b2b4945bb"
+  integrity sha512-yw+CAjr3O7aDIEKkrCDsefaG9Ik/zirXvejzOXxvudWOs8p3odlSHklEWbU0GpdB28flDSZyHOTNJxKYSSIW1Q==
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/sort-keys/download/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
@@ -5612,7 +5619,7 @@ utils-merge@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/utils-merge/download/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
-utils-merge@1.0.1:
+utils-merge@1.0.1, utils-merge@^1.0.1:
   version "1.0.1"
   resolved "http://r.cnpmjs.org/utils-merge/download/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
