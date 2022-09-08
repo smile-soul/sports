@@ -12,7 +12,7 @@
     "prepare": "npm run snyk-protect"
   },
   "dependencies": {
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.2",
     "nprogress": "^0.2.0",
     "passport": "^0.4.0",
     "sass-loader": "^6.0.6",
