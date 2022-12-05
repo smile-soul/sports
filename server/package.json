@@ -9,7 +9,7 @@
   "main": "app.js",
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "express": "^4.12.3",
+    "express": "^4.17.3",
     "mysql": "^2.15.0",
     "swagger-decorator": "^0.0.22",
     "swagger-express-mw": "^0.1.0"
