@@ -12,7 +12,7 @@
     "express": "^4.12.3",
     "mysql": "^2.15.0",
     "swagger-decorator": "^0.0.22",
-    "swagger-express-mw": "^0.1.0"
+    "swagger-express-mw": "^0.6.0"
   },
   "devDependencies": {
     "should": "^7.1.0",
