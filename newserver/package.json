@@ -17,6 +17,6 @@
     "express": "^4.16.2",
     "js-yaml": "^3.3.0",
     "mysql": "^2.15.0",
-    "swagger-tools": "0.10.1"
+    "swagger-tools": "0.10.4"
   }
 }
