@@ -18,7 +18,7 @@
     "url": "https://github.com/passport/express-4.x-http-bearer-example/issues"
   },
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.21.0",
     "morgan": "^1.6.1",
     "passport": "^0.2.2",
     "passport-http-bearer": "^1.0.1"
